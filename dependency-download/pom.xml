@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.tencent.tsf</groupId>
+        <artifactId>spring-cloud-tsf-dependencies</artifactId>
+        <version>1.12.4-Finchley-RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dependency-download</artifactId>
+
+    <name>all dependencies</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+				<!-- TSF SDK统一版本 -->
+		<tsf.version>1.12.4-Finchley-RELEASE</tsf.version>
+		<!-- 时序数据库 -->
+		<influxdb-java.version>2.11</influxdb-java.version>
+		<gson.verion>2.8.2</gson.verion>
+		<consul-api.version>1.4.2</consul-api.version>
+    </properties>
+
+
+    <dependencies>
+        <!-- gateway dependency -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+
+        <!--consul discovery-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-consul-discovery</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-consul-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-consul-discovery</artifactId>
+        </dependency>
+
+        <!--logging-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+
+        <!--actuator-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--hystrix-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
+        </dependency>
+
+        <!-- Test Dependency -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+            </exclusions>
+            <scope>test</scope>
+        </dependency>
+
+			<dependency>
+				<groupId>org.influxdb</groupId>
+				<artifactId>influxdb-java</artifactId>
+				<version>${influxdb-java.version}</version>
+			</dependency>
+			<!-- TSF Consul Config -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-consul-config</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Consul Core -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-consul-core</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Consul Discovery -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-consul-discovery</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Sleuth 调用链 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-sleuth</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Auth 权限管理 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-auth</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Rate Limit 权限管理 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-ratelimit</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF RPC 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-rpc</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Ribbon 客户端路由 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-route</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Schedule 定时调度 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-schedule</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Hystrix 熔断 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-hystrix</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Core 核心 标准依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-core</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Encrypt 加解密依赖 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-encrypt</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Metrics 监控端点 >
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-metrics</artifactId>
+				<version>${tsf.version}</version>
+			</dependency-->
+			<!-- TSF Logger 日志 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-logger</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF swagger -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-swagger</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Tag Engine -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-tagengine</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Starter 启动器 -->
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-starter</artifactId>
+				<version>${tsf.version}</version>
+			</dependency>
+			<!-- TSF Starter Build 启动器构建程序 >
+			<dependency>
+				<groupId>com.tencent.tsf</groupId>
+				<artifactId>spring-cloud-tsf-starter-build</artifactId>
+				<version>${tsf.version}</version>
+			</dependency-->
+
+			<dependency>
+				<groupId>com.ecwid.consul</groupId>
+				<artifactId>consul-api</artifactId>
+				<version>${consul-api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${gson.version}</version>
+			</dependency>
+    </dependencies>
+</project>

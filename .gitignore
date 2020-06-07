@@ -1,23 +1,43 @@
-/.settings
-/*/target
-/*/.settings
-/*/.project
-/*/.classpath
-/.idea/*
-*.iml
-consumer-demo/\.rebel-remote\.xml\.bak
+target/
 
-consumer-demo/\.rebel\.xml\.bak
+### spring starter ###
+.mvn
+mvnw
+mvnw.cmd
 
-consumer-demo/src/main/resources/rebel\.xml
+### temp files ###
+*.log
+*.tmp
+*.class
 
-provider-demo/\.rebel-remote\.xml\.bak
-
-provider-demo/src/main/resources/rebel\.xml
-
+### STS and eclipse ###
+.apt_generated
+.classpath
+.factorypath
 .project
-/*.project
-/zuul-demo/logs
-logs/
-/**/*.xml
-/**/*.iml
+.springBeans
+.sts4-cache
+.settings/
+bin/
+tmp/
+.metadata
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+.idea_modules/
+
+### VSCode ###
+.vscode/
+.code-workspace
+
+### MACOS ###
+.DS_Store
